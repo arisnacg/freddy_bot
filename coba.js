@@ -1,10 +1,10 @@
 const Discord = require("discord.js")
-const {prefix, token} = require("./config.json")
+const {token, channelID} = require("./config.json")
 
 //bot dijalankan
 const client = new Discord.Client()
 client.once("ready", () => {
-	console.log(client.channels)
+	client.channels.get(channelID).send("Hello there!")
 })
 
 client.login(token)
