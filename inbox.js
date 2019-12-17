@@ -18,7 +18,7 @@ client.once("ready", () => {
 })
 
 
-
+//ngecek db
 con.connect(err => {
 	if(err){
 		throw err
