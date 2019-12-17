@@ -1,4 +1,5 @@
 const Discord = require("discord.js")
+const {prefix, token} = require("./config.json")
 
 //bot dijalankan
 const client = new Discord.Client()
