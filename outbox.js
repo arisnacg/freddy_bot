@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 const mysql = require('mysql')
 const moment = require('moment')
-const {prefix, token, channelID} = require("./config.json")
+const {token, channelID} = require("./config.json")
 
 
 let con = mysql.createConnection({
