@@ -1,3 +1,9 @@
-var strDateTime = "Fri, 18 Oct 2013 11:38:23 GMT";
-var myDate = new Date(strDateTime);
-console.log(myDate.toLocaleString())
+const Discord = require("discord.js")
+
+//bot dijalankan
+const client = new Discord.Client()
+client.once("ready", () => {
+	console.log(client.channels)
+})
+
+client.login(token)
