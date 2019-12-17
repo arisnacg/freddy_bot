@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 const mysql = require('mysql')
 const moment = require('moment')
-const {prefix, token} = require("./config.json")
+const {prefix, token, channelID} = require("./config.json")
 
 
 let con = mysql.createConnection({
@@ -22,7 +22,7 @@ client.once("ready", () => {
 			console.log("TOTAL OUTBOX [Status Kirim 0] = "+result.length)
 			if(result.length){
 				result.forEach(outbox => {
-					client.channels.get('656347342089224215').send(outbox.pesan)
+					client.channels.get(channelID).send(outbox.pesan)
 					let queryUpdate = `UPDATE outbox SET status_dikirim=1, waktu_kirim='${moment().format('YYYY-MM-DD hh:mm:ss')}' 
 					WHERE message_id=${outbox.message_id} AND account_id=${outbox.account_id}`;
 					console.log("query update :"+queryUpdate)
