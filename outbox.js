@@ -23,6 +23,7 @@ client.once("ready", () => {
 			if(result.length){
 				result.forEach(outbox => {
 					client.channels.get(channelID).send(outbox.pesan)
+					client.users.get(outbox.account_id).send(outbox.pesan)
 					let queryUpdate = `UPDATE outbox SET status_dikirim=1, waktu_kirim='${moment().format('YYYY-MM-DD hh:mm:ss')}' 
 					WHERE message_id=${outbox.message_id} AND account_id=${outbox.account_id}`;
 					console.log("query update :"+queryUpdate)
